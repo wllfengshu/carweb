@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>振博汽车修理管理系统</title>
+		<meta name="author" content="WLL">
+		<% include ./components/scriptCSS.html %>
+		<% include ./components/scriptJS.html %>
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- The fav icon -->
+		<link rel="shortcut icon" href="../img/favicon.ico">
+	</head>
+
+	<body>
+		<% include ./components/topBar.html %>
+		<div class="ch-container">
+			<div class="row">
+				<% include ./components/leftMenu.html %>
+				<% include ./components/noScript.html %>
+				<div id="content" class="col-lg-10 col-sm-10">
+					<!-- content starts -->
+					<div>
+						<ul class="breadcrumb">
+							<li>
+								<a href="index">主页</a>
+							</li>
+							<li>
+								<a href="#">个人信息管理</a>
+							</li>
+							<li>
+								<a href="user">账号管理</a>
+							</li>
+						</ul>
+					</div>
+					<div class=" row">
+						<!--span-->
+						<div class="box col-md-4">
+							<div class="box-inner homepage-box">
+								<div class="box-header well" data-original-title="">
+									<h2><i class="glyphicon glyphicon-list-alt"></i> 账号信息</h2>
+
+									<div class="box-icon">
+										<a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+										<a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+									</div>
+								</div>
+								<div class="box-content">
+									<form class="form-horizontal">
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-4 control-label">姓名：</label>
+												<div class="col-lg-8 col-sm-8">
+													<p id="_name" class="form-control-static">默认值</p>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-4 control-label">电话：</label>
+												<div class="col-lg-8 col-sm-8">
+													<p id="_phone" class="form-control-static">默认值</p>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-4 control-label">微信：</label>
+												<div class="col-lg-8 col-sm-8">
+													<p id="_wechat" class="form-control-static">默认值</p>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-4 control-label">住址：</label>
+												<div class="col-lg-8 col-sm-8">
+													<p id="_address" class="form-control-static">默认值</p>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-3 col-sm-4 control-label">岗位：</label>
+												<div class="col-lg-8 col-sm-8">
+													<p id="_post" class="form-control-static">默认值</p>
+												</div>
+											</div>
+										</fieldset>
+										<div class="form-group has-success col-md-12">
+											<a href="#" class="col-md-12 btn btn-info btn-setting_info" id="updateBut">点击修改</a>
+										</div>
+									</form>
+									<!--下面的div是弹框  -->
+									<div class="modal fade" id="myModal_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">×</button>
+													<h3>个人信息修改：</h3>
+												</div>
+												<div class="modal-body" style="height: 250px;">
+													<form class="">
+														<div class="form-group has-success col-md-12">
+															<label class="control-label" for="inputWarning1">姓名：</label>
+															<input type="text" value="未填写" class="form-control" id="_s_name">
+														</div>
+														<div class="form-group has-success col-md-12">
+															<label class="control-label" for="inputWarning2">电话：</label>
+															<input type="text" value="未填写" class="form-control" id="_s_phone">
+														</div>
+														<div class="form-group has-success col-md-12">
+															<label class="control-label" for="inputWarning3">微信：</label>
+															<input type="text" value="未填写" class="form-control" id="_s_wechat">
+														</div>
+														<div class="form-group has-success col-md-12">
+															<label class="control-label" for="inputWarning3">住址：</label>
+															<input type="text" value="未填写" class="form-control" id="_s_address">
+														</div>
+														<div class="form-group has-success col-md-12">
+															<label class="control-label" for="inputWarning3">岗位：</label>
+															<input type="text" value="未填写" class="form-control" id="_s_post">
+														</div>
+													</form>
+												</div>
+												<div class="modal-footer">
+													<a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
+													<a href="#" class="btn btn-primary" data-dismiss="modal" id="updateSaveBut">保存</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--/span-->
+					</div>
+				</div>
+			</div>
+			<hr>
+			<% include ./components/footer.html %>
+		</div>
+		<script type="text/javascript">
+	       $(function(){
+	       		var loginUserAllInfo=$.session.get("loginUserAllInfo");
+	       		var loginUserAllInfoJSON=JSON.parse(loginUserAllInfo);
+	       
+	    		$("#_name").html(loginUserAllInfoJSON.name);
+	    		$("#_phone").html(loginUserAllInfoJSON.phone);
+	    		$("#_wechat").html(loginUserAllInfoJSON.wechat);
+	    		$("#_address").html(loginUserAllInfoJSON.address);
+	    		$("#_post").html(loginUserAllInfoJSON.post);
+	    		
+	    		
+	    		// 点击修改
+	    		$("#updateBut").click(function(){
+	    			
+	    		};
+	 			
+	 			// 点击修改弹框里面的保存
+	    		$("#updateSaveBut").click(function(){
+			    	var params = {
+		    			name: $("#_s_name").val(),
+		    			phone: $("#_s_phone").val(),
+		    			wechat: $("#_s_wechat").val(),
+		    			address: $("#_s_address").val(),
+		    			post: $("#_s_post").val()
+		    		}
+			    	$.ajax({
+					    url: 'http://localhost:8080/car/tbUsers/tbUser/update',
+					    type: 'put',
+					    async: false,//同步：意思是当有返回值以后才会进行后面的js程序。
+					    dataType: 'json',
+					    headers: {'Content-Type':'application/json'},
+					    data: JSON.stringify(params),
+					    success: function(ress){
+					    	alert("修改成功的数据");
+					    	$("#_name").html($("#_s_name").val();
+				    		$("#_phone").html($("#_s_phone").val());
+				    		$("#_wechat").html($("#_s_wechat").val());
+				    		$("#_address").html($("#_s_address").val());
+				    		$("#_post").html($("#_s_post").val());
+					    	
+					    },
+					    error: function(rese){
+					    	console.log('修改失败的数据：' , rese)
+			            	alert(rese.responseJSON.errorMessage);
+			            }
+					});
+	    		});
+			});
+	    </script>
+	</body>
+
+</html>

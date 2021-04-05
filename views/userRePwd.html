@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>振博汽车修理管理系统</title>
+		<meta name="author" content="WLL">
+		<% include ./components/scriptCSS.html %>
+		<% include ./components/scriptJS.html %>
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- The fav icon -->
+		<link rel="shortcut icon" href="../img/favicon.ico">
+	</head>
+
+	<body>
+		<% include ./components/topBar.html %>
+		<div class="ch-container">
+			<div class="row">
+				<% include ./components/leftMenu.html %>
+				<% include ./components/noScript.html %>
+				<div id="content" class="col-lg-10 col-sm-10">
+					<!-- content starts -->
+					<div>
+						<ul class="breadcrumb">
+							<li>
+								<a href="index">主页</a>
+							</li>
+							<li>
+								<a href="#">个人信息管理</a>
+							</li>
+							<li>
+								<a href="userRePwd">修改密码</a>
+							</li>
+						</ul>
+					</div>
+					<div class=" row">
+						<!--span-->
+						<div class="box col-md-4">
+							<div class="box-inner homepage-box">
+								<div class="box-header well" data-original-title="">
+									<h2><i class="glyphicon glyphicon-list-alt"></i> 修改密码</h2>
+
+									<div class="box-icon">
+										<a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+										<a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+									</div>
+								</div>
+								<div class="box-content">
+									<!--内容 start-->
+									<fo-rm class="">
+										<div class="form-group has-success col-md-12">
+											<label class="control-label" for="inputWarning1">旧密码：</label>
+											<input id="oldPwd" type="password" placeholder="请输入旧密码" class="form-control">
+										</div>
+										<div class="form-group has-success col-md-12">
+											<label class="control-label" for="inputWarning1">新密码：</label>
+											<input id="newPwd1" type="password" placeholder="6到20位，包含字母和数字" class="form-control">
+										</div>
+										<div class="form-group has-success col-md-12">
+											<label class="control-label" for="inputWarning1">新密码：</label>
+											<input id="newPwd2" type="password" placeholder="6到20位，包含字母和数字" class="form-control">
+										</div>
+										<div class="form-group has-success col-md-12">
+											<button id="userRePwdBut" class="col-md-12 btn btn-info btn-setting">点击保存</button>
+										</div>
+									</fo-rm>
+									<!--下面的div是弹框  -->
+									<div class="modal fade" id="my-Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">×</button>
+													<h3>修改密码：</h3>
+												</div>
+												<div class="modal-body">
+													<p>您确定保存修改吗？</p>
+												</div>
+												<div class="modal-footer">
+													<a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
+													<a href="#" class="btn btn-primary" data-dismiss="modal">保存</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<% include ./components/footer.html %>
+		</div>
+		<script type="text/javascript">
+		        $("#userRePwdBut").click(function(){
+		        	var _oldPwd=$("#oldPwd").val();
+		        	var _newPwd1=$("#newPwd1").val();
+		        	var _newPwd2=$("#newPwd2").val();
+		        	if(_oldPwd==null || _oldPwd==null || _newPwd1==null || _newPwd1==null || _newPwd2==null || _newPwd2==null ){
+		        		alert("输入不能为空");
+		        	}
+		        	if(_newPwd1 != _newPwd2){
+		        		alert("两次密码不一致");
+		        		$("#oldPwd").val("");
+		        		$("#newPwd1").val("");
+		        		$("#newPwd2").val("");
+		        		return;
+		        	}
+		    		var loginUserAllInfo=$.session.get("loginUserAllInfo");
+	       			var loginUserAllInfoJson=JSON.parse(loginUserAllInfo);
+	       			
+		    		var _headers= {
+		    			"Content-Type" : "application/json",
+						"sessionId" : loginUserAllInfoJson.sessionId
+					}
+		    		var params ={
+		    			oldPwd: _oldPwd,
+		    			newPwd1: _newPwd1,
+		    			newPwd2: _newPwd2,
+		    			loginName: loginUserAllInfoJson.loginName
+		    		};
+			    	$.ajax({
+					    url:'http://localhost:8080/car/tbUsers/tbUser/repwd',
+					    type:'post',
+					    async:false,//同步：意思是当有返回值以后才会进行后面的js程序。
+					    dataType:'json',
+					    data: JSON.stringify(params),
+					    headers:_headers,
+					    success: function(data){
+					        alert("修改密码成功");
+					        $("#oldPwd").val("");
+			        		$("#newPwd1").val("");
+			        		$("#newPwd2").val("");
+					    },
+					    error: function(res){
+			            	alert("修改密码失败");
+			            	$("#oldPwd").val("");
+			        		$("#newPwd1").val("");
+			        		$("#newPwd2").val("");
+			            }
+					});
+				});
+	    </script>
+	</body>
+
+</html>

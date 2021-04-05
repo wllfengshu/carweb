@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>振博汽车修理管理系统</title>
+		<meta name="author" content="WLL">
+		<% include ./components/scriptCSS.html %>
+		<% include ./components/scriptJS.html %>
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- The fav icon -->
+		<link rel="shortcut icon" href="../img/favicon.ico">
+	</head>
+	<body>
+		<style>
+			html {
+				overflow-x: hidden;
+				overflow-y: auto;
+			}
+		</style>
+		<% include ./components/topBar.html %>
+		<div class="ch-container">
+			<div class="row">
+				<% include ./components/leftMenu.html %>
+				<% include ./components/noScript.html %>
+				<div id="content" class="col-lg-10 col-sm-10">
+					<!-- content starts -->
+					<div>
+						<ul class="breadcrumb">
+							<li>
+								<a href="#">主页</a>
+							</li>
+							<li>
+								<a href="#">仪表盘</a>
+							</li>
+						</ul>
+					</div>
+					
+					<div class=" row">
+						<div class="box col-md-12">
+							<div class="box-inner">
+								<div class="box-header well">
+									<h2><i class="glyphicon glyphicon-info-sign"></i> 系统消息</h2>
+									<div class="box-icon">
+										<a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+										<a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+									</div>
+								</div>
+								<div class="box-content row">
+									<div class="col-lg-7 col-md-12">
+										<h1>欢迎登录振博汽车修理管理系统<br>
+					                        <small>在这里您可以使用振博汽车修理管理系统管理汽修店</small>
+					                    </h1>
+										<ul>
+											<br />
+											<li><b>管理员拥有最高权限，为了数据的安全性，请管理员规范操作</b></li>
+											<br />
+											<li><b>请管理员务必保护好用户的信息</b></li>
+											<br />
+											<li><b>如果在系统操作过程中，出现任务问题请与开发人员沟通</b></li>
+											<br />
+											<li><b>开发人员邮箱：wllfengshu@163.com</b></li>
+										</ul>
+									</div>
+									<!-- Ads end -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /content ends -->
+				</div>
+				<!--/content.col-md-0-->
+			</div>
+			<!--/fluid-row-->
+			<hr>
+			<% include ./components/footer.html %>
+		</div>
+		<!--/fluid-container-->
+	</body>
+
+</html>

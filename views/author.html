@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>振博汽车修理管理系统</title>
+		<meta name="author" content="WLL">
+		<% include ./components/scriptCSS.html %>
+		<% include ./components/scriptJS.html %>
+		<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- The fav icon -->
+		<link rel="shortcut icon" href="../img/favicon.ico">
+	</head>
+	<body>
+		<style>
+			html { overflow-x: hidden; overflow-y: auto; }
+		</style>
+		<% include ./components/topBar.html %>
+		<div class="ch-container">
+			<div class="row">
+				<% include ./components/leftMenu.html %>
+				<% include ./components/noScript.html %>
+				<div id="content" class="col-lg-10 col-sm-10">
+					<!-- content starts -->
+					<div>
+						<ul class="breadcrumb">
+							<li>
+								<a href="index">主页</a>
+							</li>
+							<li>
+								<a href="author">关于作者</a>
+							</li>
+						</ul>
+					</div>
+					<div class="box-content">
+						<!-- liang -->
+						<div class="panel panel-default">
+							<div class="panel-heading"> <strong class="">关于作者</strong>
+							</div>
+
+							<div class="panel-wrapper collapse in" aria-expanded="true">
+								<div class="panel-body">
+									<form class="form-horizontal">
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-4 control-label">作者姓名</label>
+												<div class="col-lg-10 col-sm-8">
+													<p class="form-control-static">WLL</p>
+												</div>
+											</div>
+										</fieldset>
+										<hr style="height:1px;border:none;border-top:1px dashed #0066CC; opacity: 0.4;" />
+										<fieldset>
+											<div class="form-group">
+												<label class="col-lg-2 col-sm-4 control-label">作者邮箱</label>
+												<div class="col-lg-10 col-sm-8">
+													<p class="form-control-static">wllfengshu@163.com</p>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- liang -->
+					</div>
+					<!-- content ends -->
+				</div>
+				<!--/content.col-md-0-->
+			</div>
+			<!--/fluid-row-->
+			<hr>
+			<% include ./components/footer.html %>
+		</div>
+		<!--/fluid-container-->
+	</body>
+</html>

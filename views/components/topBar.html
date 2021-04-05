@@ -1,0 +1,48 @@
+<!-- topbar starts -->
+<div class="navbar navbar-default" role="navigation">
+	<div class="navbar-inner">
+		<div class="btn-group pull-left">
+			<a style="color: #044687; font-size: 24px; align-content: center;" href="/index"> 
+				<span>振博汽车修理管理系统</span>
+			</a>
+		</div>
+		<!-- user dropdown starts -->
+		<div class="btn-group pull-right">
+			<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="glyphicon glyphicon-user"></i>欢迎您，<span class="hidden-sm hidden-xs" id="login_name">管理员</span>
+                    <span class="caret"></span>
+                </button>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="user">个人信息</a>
+				</li>
+				<li class="divider"></li>
+				<li>
+					<a href="login">退出</a>
+				</li>
+			</ul>
+		</div>
+		<!-- user dropdown ends -->
+	</div>
+</div>
+<div id="messageTitle" style="position: absolute; z-index: 99;text-align:center;width: 80%;" class="animated bounceInDown">
+	<p v-if="show" style="background-color: #FF1111;">登录超时，请重新登录</p>
+</div>
+<script type="text/javascript">
+       $(function(){
+	       	/**
+	       	 * $.parseJSON(str);//字符串转对象
+	       	 * JSON.stringify(obj);//对象转字符串
+	       	 */
+	   		var loginUserAllInfo=$.session.get("loginUserAllInfo");
+	   		if (typeof(loginUserAllInfo) == "undefined" ) {
+	   			window.location.href = '/login';
+	   		}
+	   		new Vue({
+   				el:"#messageTitle",
+   				data:{show:false}
+   			});
+	        $("#login_name").html(JSON.parse(loginUserAllInfo).name);
+       });
+</script>
+<!-- topbar ends -->
