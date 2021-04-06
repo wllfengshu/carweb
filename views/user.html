@@ -146,19 +146,26 @@
 		<script type="text/javascript">
 	       $(function(){
 	       		var loginUserAllInfo=$.session.get("loginUserAllInfo");
-	       		var loginUserAllInfoJSON=JSON.parse(loginUserAllInfo);
+	       		var loginUserAllInfoJson=JSON.parse(loginUserAllInfo);
 	       
-	    		$("#_name").html(loginUserAllInfoJSON.name);
-	    		$("#_phone").html(loginUserAllInfoJSON.phone);
-	    		$("#_wechat").html(loginUserAllInfoJSON.wechat);
-	    		$("#_address").html(loginUserAllInfoJSON.address);
-	    		$("#_post").html(loginUserAllInfoJSON.post);
+	       		//初始化页面数据
+	    		$("#_name").html(loginUserAllInfoJson.name);
+	    		$("#_phone").html(loginUserAllInfoJson.phone);
+	    		$("#_wechat").html(loginUserAllInfoJson.wechat);
+	    		$("#_address").html(loginUserAllInfoJson.address);
+	    		$("#_post").html(loginUserAllInfoJson.post);
 	    		
+	    		//初始化弹框数据
+	    		$("#_s_name").val(loginUserAllInfoJson.name);
+	    		$("#_s_phone").val(loginUserAllInfoJson.phone);
+	    		$("#_s_wechat").val(loginUserAllInfoJson.wechat);
+	    		$("#_s_address").val(loginUserAllInfoJson.address);
+	    		$("#_s_post").val(loginUserAllInfoJson.post);
 	    		
 	    		// 点击修改
 	    		$("#updateBut").click(function(){
 	    			
-	    		};
+	    		});
 	 			
 	 			// 点击修改弹框里面的保存
 	    		$("#updateSaveBut").click(function(){
@@ -167,23 +174,37 @@
 		    			phone: $("#_s_phone").val(),
 		    			wechat: $("#_s_wechat").val(),
 		    			address: $("#_s_address").val(),
-		    			post: $("#_s_post").val()
+		    			post: $("#_s_post").val(),
+		    			loginName: loginUserAllInfoJson.loginName
 		    		}
+			    	var _headers= {
+		    			"Content-Type" : "application/json",
+						"sessionId" : loginUserAllInfoJson.sessionId
+					}
 			    	$.ajax({
-					    url: 'http://localhost:8080/car/tbUsers/tbUser/update',
+					    url: 'http://localhost:8080/car/tbUsers/tbUser',
 					    type: 'put',
 					    async: false,//同步：意思是当有返回值以后才会进行后面的js程序。
 					    dataType: 'json',
-					    headers: {'Content-Type':'application/json'},
+					    headers: _headers,
 					    data: JSON.stringify(params),
 					    success: function(ress){
 					    	alert("修改成功的数据");
-					    	$("#_name").html($("#_s_name").val();
+					    	
+					    	//初始化页面数据
+					    	$("#_name").html($("#_s_name").val());
 				    		$("#_phone").html($("#_s_phone").val());
 				    		$("#_wechat").html($("#_s_wechat").val());
 				    		$("#_address").html($("#_s_address").val());
 				    		$("#_post").html($("#_s_post").val());
-					    	
+				    		
+				    		//update session中的数据
+				    		loginUserAllInfoJson.name=$("#_s_name").val();
+				    		loginUserAllInfoJson.phone=$("#_s_phone").val();
+				    		loginUserAllInfoJson.wechat=$("#_s_wechat").val();
+				    		loginUserAllInfoJson.address=$("#_s_address").val();
+				    		loginUserAllInfoJson.post=$("#_s_post").val();
+				    		$.session.set("loginUserAllInfo",JSON.stringify(loginUserAllInfoJson));
 					    },
 					    error: function(rese){
 					    	console.log('修改失败的数据：' , rese)
