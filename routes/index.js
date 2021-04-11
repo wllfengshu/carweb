@@ -22,10 +22,6 @@ router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
-router.get('/tenantInfo', function(req, res, next) {
-  res.render('tenantInfo');
-});
-
 router.get('/userInfo', function(req, res, next) {
   res.render('userInfo');
 });
@@ -34,24 +30,20 @@ router.get('/roleInfo', function(req, res, next) {
   res.render('roleInfo');
 });
 
-router.get('/reportOut', function(req, res, next) {
-  res.render('reportOut');
+router.get('/carWashInfo', function(req, res, next) {
+  res.render('carWashInfo');
 });
 
-router.get('/reportIn', function(req, res, next) {
-  res.render('reportIn');
+router.get('/carRepairInfo', function(req, res, next) {
+  res.render('carRepairInfo');
 });
 
-router.get('/callOut', function(req, res, next) {
-  res.render('callOut');
+router.get('/faultReasonDictInfo', function(req, res, next) {
+  res.render('faultReasonDictInfo');
 });
 
-router.get('/callIn', function(req, res, next) {
-  res.render('callIn');
-});
-
-router.get('/qcRecord', function(req, res, next) {
-  res.render('qcRecord');
+router.get('/customerInfo', function(req, res, next) {
+  res.render('customerInfo');
 });
 
 router.get('/user', function(req, res, next) {//个人信息管理-账号管理

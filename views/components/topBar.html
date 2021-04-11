@@ -35,7 +35,7 @@
 	       	 * JSON.stringify(obj);//对象转字符串
 	       	 */
 	   		var loginUserAllInfo=$.session.get("loginUserAllInfo");
-	   		if (typeof(loginUserAllInfo) == "undefined" ) {
+	   		if (typeof(loginUserAllInfo) == "undefined" || loginUserAllInfo==null || loginUserAllInfo=="" || loginUserAllInfo=='') {
 	   			window.location.href = '/login';
 	   		}
 	   		new Vue({
