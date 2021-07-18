@@ -38,8 +38,8 @@ router.get('/carRepairInfo', function(req, res, next) {
   res.render('carRepairInfo');
 });
 
-router.get('/faultReasonDictInfo', function(req, res, next) {
-  res.render('faultReasonDictInfo');
+router.get('/faultReasonDict', function(req, res, next) {
+  res.render('faultReasonDict');
 });
 
 router.get('/customerInfo', function(req, res, next) {

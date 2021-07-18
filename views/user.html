@@ -44,8 +44,10 @@
 									<h2><i class="glyphicon glyphicon-list-alt"></i> 账号信息</h2>
 
 									<div class="box-icon">
-										<a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-										<a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+										<a href="#" class="btn btn-minimize btn-round btn-default"><i
+												class="glyphicon glyphicon-chevron-up"></i></a>
+										<a href="#" class="btn btn-close btn-round btn-default"><i
+												class="glyphicon glyphicon-remove"></i></a>
 									</div>
 								</div>
 								<div class="box-content">
@@ -91,11 +93,13 @@
 											</div>
 										</fieldset>
 										<div class="form-group has-success col-md-12">
-											<a href="#" class="col-md-12 btn btn-info btn-setting_info" id="updateBut">点击修改</a>
+											<a href="#" class="col-md-12 btn btn-info btn-setting_info"
+												id="updateBut">点击修改</a>
 										</div>
 									</form>
 									<!--下面的div是弹框  -->
-									<div class="modal fade" id="myModal_info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal fade" id="myModal_info" tabindex="-1" role="dialog"
+										aria-labelledby="myModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -106,29 +110,35 @@
 													<form class="">
 														<div class="form-group has-success col-md-12">
 															<label class="control-label" for="inputWarning1">姓名：</label>
-															<input type="text" value="未填写" class="form-control" id="_s_name">
+															<input type="text" value="未填写" class="form-control"
+																id="_s_name">
 														</div>
 														<div class="form-group has-success col-md-12">
 															<label class="control-label" for="inputWarning2">电话：</label>
-															<input type="text" value="未填写" class="form-control" id="_s_phone">
+															<input type="text" value="未填写" class="form-control"
+																id="_s_phone">
 														</div>
 														<div class="form-group has-success col-md-12">
 															<label class="control-label" for="inputWarning3">微信：</label>
-															<input type="text" value="未填写" class="form-control" id="_s_wechat">
+															<input type="text" value="未填写" class="form-control"
+																id="_s_wechat">
 														</div>
 														<div class="form-group has-success col-md-12">
 															<label class="control-label" for="inputWarning3">住址：</label>
-															<input type="text" value="未填写" class="form-control" id="_s_address">
+															<input type="text" value="未填写" class="form-control"
+																id="_s_address">
 														</div>
 														<div class="form-group has-success col-md-12">
 															<label class="control-label" for="inputWarning3">岗位：</label>
-															<input type="text" value="未填写" class="form-control" id="_s_post">
+															<input type="text" value="未填写" class="form-control"
+																id="_s_post">
 														</div>
 													</form>
 												</div>
 												<div class="modal-footer">
 													<a href="#" class="btn btn-default" data-dismiss="modal">取消</a>
-													<a href="#" class="btn btn-primary" data-dismiss="modal" id="updateSaveBut">保存</a>
+													<a href="#" class="btn btn-primary" data-dismiss="modal"
+														id="updateSaveBut">保存</a>
 												</div>
 											</div>
 										</div>
@@ -144,76 +154,76 @@
 			<% include ./components/footer.html %>
 		</div>
 		<script type="text/javascript">
-	       $(function(){
-	       		var loginUserAllInfo=$.session.get("loginUserAllInfo");
-	       		var loginUserAllInfoJson=JSON.parse(loginUserAllInfo);
-	       
-	       		//初始化页面数据
-	    		$("#_name").html(loginUserAllInfoJson.name);
-	    		$("#_phone").html(loginUserAllInfoJson.phone);
-	    		$("#_wechat").html(loginUserAllInfoJson.wechat);
-	    		$("#_address").html(loginUserAllInfoJson.address);
-	    		$("#_post").html(loginUserAllInfoJson.post);
-	    		
-	    		//初始化弹框数据
-	    		$("#_s_name").val(loginUserAllInfoJson.name);
-	    		$("#_s_phone").val(loginUserAllInfoJson.phone);
-	    		$("#_s_wechat").val(loginUserAllInfoJson.wechat);
-	    		$("#_s_address").val(loginUserAllInfoJson.address);
-	    		$("#_s_post").val(loginUserAllInfoJson.post);
-	    		
-	    		// 点击修改
-	    		$("#updateBut").click(function(){
-	    			
-	    		});
-	 			
-	 			// 点击修改弹框里面的保存
-	    		$("#updateSaveBut").click(function(){
-			    	var params = {
-		    			name: $("#_s_name").val(),
-		    			phone: $("#_s_phone").val(),
-		    			wechat: $("#_s_wechat").val(),
-		    			address: $("#_s_address").val(),
-		    			post: $("#_s_post").val(),
-		    			loginName: loginUserAllInfoJson.loginName
-		    		}
-			    	var _headers= {
-		    			"Content-Type" : "application/json",
-						"sessionId" : loginUserAllInfoJson.sessionId
+			$(function() {
+				var loginUserAllInfo = $.session.get("loginUserAllInfo");
+				var loginUserAllInfoJson = JSON.parse(loginUserAllInfo);
+
+				//初始化页面数据
+				$("#_name").html(loginUserAllInfoJson.name);
+				$("#_phone").html(loginUserAllInfoJson.phone);
+				$("#_wechat").html(loginUserAllInfoJson.wechat);
+				$("#_address").html(loginUserAllInfoJson.address);
+				$("#_post").html(loginUserAllInfoJson.post);
+
+				//初始化弹框数据
+				$("#_s_name").val(loginUserAllInfoJson.name);
+				$("#_s_phone").val(loginUserAllInfoJson.phone);
+				$("#_s_wechat").val(loginUserAllInfoJson.wechat);
+				$("#_s_address").val(loginUserAllInfoJson.address);
+				$("#_s_post").val(loginUserAllInfoJson.post);
+
+				// 点击修改
+				$("#updateBut").click(function() {
+
+				});
+
+				// 点击修改弹框里面的保存
+				$("#updateSaveBut").click(function() {
+					var params = {
+						name: $("#_s_name").val(),
+						phone: $("#_s_phone").val(),
+						wechat: $("#_s_wechat").val(),
+						address: $("#_s_address").val(),
+						post: $("#_s_post").val(),
+						loginName: loginUserAllInfoJson.loginName
 					}
-			    	$.ajax({
-					    url: 'http://localhost:8080/car/tbUsers/tbUser',
-					    type: 'put',
-					    async: false,//同步：意思是当有返回值以后才会进行后面的js程序。
-					    dataType: 'json',
-					    headers: _headers,
-					    data: JSON.stringify(params),
-					    success: function(ress){
-					    	alert("修改成功的数据");
-					    	
-					    	//初始化页面数据
-					    	$("#_name").html($("#_s_name").val());
-				    		$("#_phone").html($("#_s_phone").val());
-				    		$("#_wechat").html($("#_s_wechat").val());
-				    		$("#_address").html($("#_s_address").val());
-				    		$("#_post").html($("#_s_post").val());
-				    		
-				    		//update session中的数据
-				    		loginUserAllInfoJson.name=$("#_s_name").val();
-				    		loginUserAllInfoJson.phone=$("#_s_phone").val();
-				    		loginUserAllInfoJson.wechat=$("#_s_wechat").val();
-				    		loginUserAllInfoJson.address=$("#_s_address").val();
-				    		loginUserAllInfoJson.post=$("#_s_post").val();
-				    		$.session.set("loginUserAllInfo",JSON.stringify(loginUserAllInfoJson));
-					    },
-					    error: function(rese){
-					    	console.log('修改失败的数据：' , rese)
-			            	alert(rese.responseJSON.errorMessage);
-			            }
+					var _headers = {
+						"Content-Type": "application/json",
+						"sessionId": loginUserAllInfoJson.sessionId
+					}
+					$.ajax({
+						url: 'http://localhost:8080/car/tbUsers/tbUser',
+						type: 'put',
+						async: false, //同步：意思是当有返回值以后才会进行后面的js程序。
+						dataType: 'json',
+						headers: _headers,
+						data: JSON.stringify(params),
+						success: function(ress) {
+							alert("修改成功的数据");
+
+							//初始化页面数据
+							$("#_name").html($("#_s_name").val());
+							$("#_phone").html($("#_s_phone").val());
+							$("#_wechat").html($("#_s_wechat").val());
+							$("#_address").html($("#_s_address").val());
+							$("#_post").html($("#_s_post").val());
+
+							//update session中的数据
+							loginUserAllInfoJson.name = $("#_s_name").val();
+							loginUserAllInfoJson.phone = $("#_s_phone").val();
+							loginUserAllInfoJson.wechat = $("#_s_wechat").val();
+							loginUserAllInfoJson.address = $("#_s_address").val();
+							loginUserAllInfoJson.post = $("#_s_post").val();
+							$.session.set("loginUserAllInfo", JSON.stringify(loginUserAllInfoJson));
+						},
+						error: function(rese) {
+							console.log('修改失败的数据：', rese)
+							alert(rese.responseJSON.errorMessage);
+						}
 					});
-	    		});
+				});
 			});
-	    </script>
+		</script>
 	</body>
 
 </html>
