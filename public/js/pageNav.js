@@ -23,14 +23,25 @@ function PageNavCreate(id,props){
     }
 
     this.target.innerHTML = "";
-    $('<div class="page-nav-inner clearfloat">'+
-                    '<ul class="pagination" style="float:left;">'+
-                    '</ul>'+
-                    '<div class="" style="width: 100px;float:left;margin:20px 0;">'+
-                        '<input type="text" values="" style="width: 40px;"/>'+
-                        '<button class="" style="width: 40px;">Go</button>'+
-                    '</div>'+
-                '</div>').appendTo($(this.target));
+	
+	// 需要Go
+    // $('<div class="page-nav-inner clearfloat">'+
+    //                 '<ul class="pagination" style="float:left;">'+
+    //                 '</ul>'+
+    //                 '<div class="" style="width: 100px;float:left;margin:20px 0;">'+
+    //                     '<input type="text" values="" style="width: 40px;"/>'+
+    //                     '<button class="" style="width: 40px;">Go</button>'+
+    //                 '</div>'+
+    //             '</div>').appendTo($(this.target));
+	
+	// 不需要Go
+	$('<div class="page-nav-inner clearfloat">'+
+	                '<ul class="pagination" style="float:center;">'+
+	                '</ul>'+
+	                '<div class="" style="width: 100px;float:center;margin:20px 0;">'+
+	                '</div>'+
+	            '</div>').appendTo($(this.target));
+				
     this.pageNavUl =  $(this.target).find("ul.pagination");
     this.pageNavInput = $(this.target).find(".page-input-box");
     
