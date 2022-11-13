@@ -229,7 +229,7 @@
 							};
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbCarRepairs/?' + this
+								url: 'http://47.100.160.177:20001/car/tbCarRepairs/?' + this
 									.spliceGetStr(params),
 								type: 'get',
 								dataType: 'json',
@@ -266,7 +266,7 @@
 							};
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbCarRepairs/tbCarRepair',
+								url: 'http://47.100.160.177:20001/car/tbCarRepairs/tbCarRepair',
 								type: 'post',
 								dataType: 'json',
 								headers: _headers,
@@ -290,7 +290,7 @@
 							_self._index = id;
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbCarRepairs/tbCarRepair/' +
+								url: 'http://47.100.160.177:20001/car/tbCarRepairs/tbCarRepair/' +
 									id,
 								type: 'delete',
 								dataType: 'json',

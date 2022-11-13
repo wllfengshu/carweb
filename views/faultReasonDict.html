@@ -173,7 +173,7 @@
 							};
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbFaultReasonDicts/?' + this
+								url: 'http://47.100.160.177:20001/car/tbFaultReasonDicts/?' + this
 									.spliceGetStr(params),
 								type: 'get',
 								dataType: 'json',
@@ -205,7 +205,7 @@
 							};
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbFaultReasonDicts/tbFaultReasonDict',
+								url: 'http://47.100.160.177:20001/car/tbFaultReasonDicts/tbFaultReasonDict',
 								type: 'post',
 								dataType: 'json',
 								headers: _headers,
@@ -228,7 +228,7 @@
 							var _self = this;
 							var _headers = this.getDataBySession();
 							$.ajax({
-								url: 'http://localhost:8080/car/tbFaultReasonDicts/tbFaultReasonDict/' +
+								url: 'http://47.100.160.177:20001/car/tbFaultReasonDicts/tbFaultReasonDict/' +
 									id,
 								type: 'delete',
 								dataType: 'json',

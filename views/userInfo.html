@@ -149,7 +149,7 @@
 					"sessionId" : loginUserAllInfoJson.sessionId
 				}
 		    	$.ajax({
-				    url:'http://localhost:8080/car/tbUsers/?'+spliceGetStr(params),
+				    url:'http://47.100.160.177:20001/car/tbUsers/?'+spliceGetStr(params),
 				    type:'get',
 				    dataType:'json',
 				    headers:_headers,
@@ -184,7 +184,7 @@
 						password: $("#_s_password").val()
 		    		};
 			    	$.ajax({
-					    url:'http://localhost:8080/car/tbUsers/tbUser',
+					    url:'http://47.100.160.177:20001/car/tbUsers/tbUser',
 					    type:'post',
 					    dataType:'json',
 					    headers:_headers,
