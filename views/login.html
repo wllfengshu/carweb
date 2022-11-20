@@ -22,7 +22,7 @@
 				overflow-y: auto;
 			}
 		</style>
-		<a href="/index">
+		<a href="/">
 		    <div class="link-card cards">
 		        <span class="link-name">返回</span>
 		    </div>
@@ -105,7 +105,7 @@
 						success: function(ress) {
 							console.log('登陆成功的数据：', ress)
 							$.session.set("loginUserAllInfo", JSON.stringify(ress.data)).setMax;
-							window.location.href = '/index';
+							window.location.href = '/admin';
 						},
 						error: function(rese) {
 							console.log('登陆失败的数据：', rese)

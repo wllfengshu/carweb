@@ -14,6 +14,10 @@ router.get('/index', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/admin', function(req, res, next) {
+  res.render('admin');
+});
+
 router.post('/index', function(req, res, next) {
   res.render('index');
 });
