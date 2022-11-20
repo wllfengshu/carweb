@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('login');
+  res.render('index');
 });
 
 router.get('/loginRePwd', function(req, res, next) {
