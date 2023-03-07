@@ -294,11 +294,13 @@ for (let day of days) {
 let shoemore = false;
 $('#switchmore').on('click', function () {
     shoemore = !shoemore;
-    if (shoemore && $(document).width() >= 990) {
+    if (shoemore ) {
+		console.log("多页面切换被点击了1");
         $('#container').attr('class', 'container mores');
         $("#change").html("Oops&nbsp;!");
         $("#change1").html("哎呀，这都被你发现了（ 再点击一次可关闭 ）");
     } else {
+		console.log("多页面切换被点击了2");
         $('#container').attr('class', 'container');
         $("#change").html("Hello&nbsp;World&nbsp;!");
         $("#change1").html("一个建立于 21 世纪的小站，存活于互联网的边缘");
